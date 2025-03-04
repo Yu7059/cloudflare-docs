@@ -3,6 +3,8 @@ pcx_content_type: how-to
 title: Google Workspace
 ---
 
+import { GlossaryTooltip, Render } from "~/components";
+
 :::note
 
 The Google Workspace IdP integration is not supported if your Google Workspace account is protected by Access.
@@ -86,6 +88,12 @@ You do not need to be a Google Cloud Platform user to integrate Google Workspace
 
 To test that your connection is working, go to **Authentication** > **Login methods** and select **Test** next to Google Workspace. Your user identity and group membership should return.
 
+:::note[`Failed to fetch group information from the identity provider` error]
+
+To test successfully, you must [finish setup](https://community.cloudflare.com/t/google-workspace-failed-to-fetch-group-information-from-the-identity-provider/313361/2). Testing before finishing setup will result in a [`Failed to fetch user/group information from the identity provider` error](/cloudflare-one/faq/troubleshooting/#i-am-getting-the-error-failed-to-fetch-usergroup-information-from-the-identity).
+
+:::
+
 ## Example API Configuration
 
 ```json
@@ -99,3 +107,9 @@ To test that your connection is working, go to **Authentication** > **Login meth
 	"name": "my example idp"
 }
 ```
+
+## Troubleshooting
+
+### `Error 401: deleted_client`
+
+<Render file="access/error-401" product="cloudflare-one" />
